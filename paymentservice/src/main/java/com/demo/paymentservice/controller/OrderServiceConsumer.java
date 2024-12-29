@@ -18,7 +18,7 @@ public class OrderServiceConsumer {
 	private RestTemplate restTemplate;
 	
 	public String getOrderStatus() {
-		List<ServiceInstance> list = discoveryClient.getInstances("ORDERSERVICE");
+		List<ServiceInstance> list = discoveryClient.getInstances("ORDER-SERVICE");
 		ServiceInstance si = list.get(0);
 		String url = si.getUri()+"/order/status";
 		return restTemplate.getForObject(url, String.class);
