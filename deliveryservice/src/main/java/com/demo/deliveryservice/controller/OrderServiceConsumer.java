@@ -1,4 +1,4 @@
-package com.demo.paymentservice.controller;
+package com.demo.deliveryservice.controller;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 @Component
-public class OrderControllerConsumer {
+public class OrderServiceConsumer {
 	
 	@Autowired
 	private DiscoveryClient discoveryClient;
@@ -20,7 +20,7 @@ public class OrderControllerConsumer {
 	public String getOrderStatus() {
 		List<ServiceInstance> list = discoveryClient.getInstances("ORDERSERVICE");
 		ServiceInstance si = list.get(0);
-		String url = si.getUri()+"/order/submit";
+		String url = si.getUri()+"/order/status";
 		return restTemplate.getForObject(url, String.class);
 	}
 

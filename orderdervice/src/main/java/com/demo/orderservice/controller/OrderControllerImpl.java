@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/order")
 public class OrderControllerImpl {
 	
-	@GetMapping("/submit")
-	public String orderSubmitted( ) {
+	@GetMapping("/status")
+	public String oderStatus( ) {
 		return "Order Submitted Successfully !!!";
 	}
 
